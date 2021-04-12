@@ -120,6 +120,7 @@ namespace PAIN_WF
             }
             catch (Exception exception)
             {
+                maxSpeedTextBox.Select(0, maxSpeedTextBox.Text.Length);
                 vehicleErrorProvider.SetError(maxSpeedTextBox, "Max speed must be a number!");
                 return false;
             }

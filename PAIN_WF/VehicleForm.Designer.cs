@@ -79,6 +79,7 @@ namespace PAIN_WF
             // 
             // buttonsTableLayoutPanel
             // 
+            this.buttonsTableLayoutPanel.CausesValidation = false;
             this.buttonsTableLayoutPanel.ColumnCount = 5;
             this.buttonsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
             this.buttonsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -127,7 +128,7 @@ namespace PAIN_WF
             this.dataTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.dataTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.dataTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.33333F));
-            this.dataTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.dataTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.dataTableLayoutPanel.Controls.Add(brandLabel, 1, 1);
             this.dataTableLayoutPanel.Controls.Add(this.maxSpeedLabel, 1, 2);
             this.dataTableLayoutPanel.Controls.Add(this.productionDateLabel, 1, 3);
@@ -188,7 +189,7 @@ namespace PAIN_WF
             this.brandTextBox.Location = new System.Drawing.Point(86, 23);
             this.brandTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
             this.brandTextBox.Name = "brandTextBox";
-            this.brandTextBox.Size = new System.Drawing.Size(286, 20);
+            this.brandTextBox.Size = new System.Drawing.Size(283, 20);
             this.brandTextBox.TabIndex = 4;
             // 
             // productionDateTimePicker
@@ -197,7 +198,7 @@ namespace PAIN_WF
             this.productionDateTimePicker.Location = new System.Drawing.Point(86, 83);
             this.productionDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
             this.productionDateTimePicker.Name = "productionDateTimePicker";
-            this.productionDateTimePicker.Size = new System.Drawing.Size(286, 20);
+            this.productionDateTimePicker.Size = new System.Drawing.Size(283, 20);
             this.productionDateTimePicker.TabIndex = 5;
             // 
             // maxSpeedTextBox
@@ -206,7 +207,7 @@ namespace PAIN_WF
             this.maxSpeedTextBox.Location = new System.Drawing.Point(86, 53);
             this.maxSpeedTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
             this.maxSpeedTextBox.Name = "maxSpeedTextBox";
-            this.maxSpeedTextBox.Size = new System.Drawing.Size(286, 20);
+            this.maxSpeedTextBox.Size = new System.Drawing.Size(283, 20);
             this.maxSpeedTextBox.TabIndex = 6;
             this.maxSpeedTextBox.TextChanged += new System.EventHandler(this.maxSpeedTextBox_TextChanged);
             this.maxSpeedTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.maxSpeedTextBox_Validating);
@@ -217,7 +218,7 @@ namespace PAIN_WF
             this.vehicleTypeControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.vehicleTypeControl.Location = new System.Drawing.Point(86, 113);
             this.vehicleTypeControl.Name = "vehicleTypeControl";
-            this.vehicleTypeControl.Size = new System.Drawing.Size(313, 71);
+            this.vehicleTypeControl.Size = new System.Drawing.Size(310, 71);
             this.vehicleTypeControl.TabIndex = 0;
             this.vehicleTypeControl.Type = PAIN_WF.VehicleType.Car;
             this.vehicleTypeControl.TypeChanged += new System.Action<PAIN_WF.VehicleType>(this.VehicleTypeControl_TypeChanged);
