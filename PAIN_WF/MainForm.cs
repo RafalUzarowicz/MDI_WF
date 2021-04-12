@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PAIN_WF
 {
     public partial class MainForm : Form
     {
-
+        // Our model
         private Vehicles Vehicles { get; } = new Vehicles();
         public MainForm()
         {
@@ -21,12 +14,16 @@ namespace PAIN_WF
 
         private void newWindowButton_Click(object sender, EventArgs e)
         {
-            VehiclesForm vehiclesForm = new VehiclesForm(Vehicles);
-            vehiclesForm.MdiParent = this;
-            vehiclesForm.Show();
+            ShowNewWindow();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
+        {
+            // One window need to exist always so we create one on start.
+            ShowNewWindow();
+        }
+
+        private void ShowNewWindow()
         {
             VehiclesForm vehiclesForm = new VehiclesForm(Vehicles);
             vehiclesForm.MdiParent = this;

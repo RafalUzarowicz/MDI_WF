@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PAIN_WF
 {
@@ -14,6 +10,8 @@ namespace PAIN_WF
     }
     public class Vehicle
     {
+
+        #region Data
         public string Brand
         {
             get;
@@ -37,6 +35,8 @@ namespace PAIN_WF
             get;
             set;
         }
+
+        #endregion
 
         public Vehicle(string brand, long maxSpeed, DateTime productionDate, VehicleType vehicleType)
         {

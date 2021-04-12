@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Design;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
 
@@ -35,14 +30,17 @@ namespace PAIN_WF
         public event Action<VehicleType> TypeChanged;
 
         private VehicleType type;
+
+        public VehicleTypeControl()
+        {
+            type = VehicleType.Car;
+            InitializeComponent();
+        }
+
         public VehicleTypeControl(VehicleType vehicleType = VehicleType.Car)
         {
             type = vehicleType;
             InitializeComponent();
-        }
-
-        private void VehicleTypeControl_Load(object sender, EventArgs e)
-        {
         }
 
         protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
@@ -80,6 +78,9 @@ namespace PAIN_WF
     [System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
     public class VehicleTypeEditor : System.Drawing.Design.UITypeEditor
     {
+        private Bitmap carBitmap = new Bitmap(global::PAIN_WF.Properties.Resources.car);
+        private Bitmap truckBitmap = new Bitmap(global::PAIN_WF.Properties.Resources.truck);
+        private Bitmap bikeBitmap = new Bitmap(global::PAIN_WF.Properties.Resources.bike);
         public VehicleTypeEditor()
         {
         }
@@ -106,6 +107,22 @@ namespace PAIN_WF
                     return vehicleTypeControl.Type;
             }
             return value;
+        }
+
+        public override void PaintValue(System.Drawing.Design.PaintValueEventArgs e)
+        {
+            switch (e.Value)
+            {
+                case VehicleType.Car:
+                    e.Graphics.DrawImage(carBitmap, e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height);
+                    break;
+                case VehicleType.Truck:
+                    e.Graphics.DrawImage(truckBitmap, e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height);
+                    break;
+                case VehicleType.Bike:
+                    e.Graphics.DrawImage(bikeBitmap, e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height);
+                    break;
+            }
         }
 
         public override bool GetPaintValueSupported(System.ComponentModel.ITypeDescriptorContext context)

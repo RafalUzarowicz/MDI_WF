@@ -100,7 +100,6 @@ namespace PAIN_WF
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "VehicleTypeControl";
             this.Size = new System.Drawing.Size(359, 170);
-            this.Load += new System.EventHandler(this.VehicleTypeControl_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.carPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.truckPictureBox)).EndInit();

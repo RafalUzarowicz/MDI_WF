@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PAIN_WF
@@ -54,18 +48,18 @@ namespace PAIN_WF
             ListViewItem item = new ListViewItem();
             item.Tag = vehicle;
             UpdateItem(item);
-            viewListView.Items.Add(item);
+            vehiclesListView.Items.Add(item);
             UpdateVehicleCount();
         }
 
-        private bool isVehicleFiltered( Vehicle vehicle)
+        private bool isVehicleFiltered(Vehicle vehicle)
         {
             switch (filterToolStripComboBox.SelectedIndex)
             {
-                case 0:     return true;
-                case 1:     return vehicle.MaxSpeed < 100;
-                case 2:     return vehicle.MaxSpeed >= 100;
-                default:    throw new Exception("Wrong filter");
+                case 0: return true;
+                case 1: return vehicle.MaxSpeed < 100;
+                case 2: return vehicle.MaxSpeed >= 100;
+                default: throw new Exception("Wrong filter");
             }
         }
 
@@ -84,7 +78,7 @@ namespace PAIN_WF
         private void Vehicles_vehicleEditEvent(Vehicle vehicle)
         {
             // Find vehicle
-            foreach(ListViewItem item in viewListView.Items)
+            foreach (ListViewItem item in vehiclesListView.Items)
             {
                 if (Object.ReferenceEquals(item.Tag, vehicle))
                 {
@@ -96,7 +90,7 @@ namespace PAIN_WF
                     else
                     {
                         // Vehicle doesn's pass the filtr
-                        viewListView.Items.Remove(item);
+                        vehiclesListView.Items.Remove(item);
                         UpdateVehicleCount();
                     }
                     return;
@@ -112,11 +106,11 @@ namespace PAIN_WF
         private void Vehicles_vehicleRemoveEvent(Vehicle vehicle)
         {
             // Find vehicle
-            foreach (ListViewItem item in viewListView.Items)
+            foreach (ListViewItem item in vehiclesListView.Items)
             {
                 if (Object.ReferenceEquals(item.Tag, vehicle))
                 {
-                    viewListView.Items.Remove(item);
+                    vehiclesListView.Items.Remove(item);
                     UpdateVehicleCount();
                     break;
                 }
@@ -130,7 +124,7 @@ namespace PAIN_WF
         private void addItem_Click(object sender, EventArgs e)
         {
             VehicleForm vehicleForm = new VehicleForm(null);
-            if(vehicleForm.ShowDialog() == DialogResult.OK)
+            if (vehicleForm.ShowDialog() == DialogResult.OK)
             {
                 Vehicle vehicle = new Vehicle(vehicleForm.VehicleBrand, vehicleForm.VehicleMaxSpeed, vehicleForm.VehicleProductionDate, vehicleForm.VehicleType);
 
@@ -140,12 +134,12 @@ namespace PAIN_WF
 
         private void editItem_Click(object sender, EventArgs e)
         {
-            if(viewListView.SelectedItems.Count != 1)
+            if (vehiclesListView.SelectedItems.Count != 1)
             {
                 return;
-            }            
-            
-            Vehicle vehicle = (Vehicle)viewListView.SelectedItems[0].Tag;
+            }
+
+            Vehicle vehicle = (Vehicle)vehiclesListView.SelectedItems[0].Tag;
             VehicleForm vehicleForm = new VehicleForm(vehicle);
             if (vehicleForm.ShowDialog() == DialogResult.OK)
             {
@@ -156,17 +150,17 @@ namespace PAIN_WF
 
                 Vehicles.EditVehicle(vehicle);
             }
-            
+
         }
 
         private void removeItem_Click(object sender, EventArgs e)
         {
-            if (viewListView.SelectedItems.Count > 0)
+            if (vehiclesListView.SelectedItems.Count > 0)
             {
-                while(viewListView.SelectedItems.Count > 0)
+                while (vehiclesListView.SelectedItems.Count > 0)
                 {
-                    Vehicle vehicle = (Vehicle)viewListView.SelectedItems[0].Tag;
-                    viewListView.Items.Remove(viewListView.SelectedItems[0]);
+                    Vehicle vehicle = (Vehicle)vehiclesListView.SelectedItems[0].Tag;
+                    vehiclesListView.Items.Remove(vehiclesListView.SelectedItems[0]);
                     Vehicles.RemoveVehicle(vehicle);
                 }
             }
@@ -183,6 +177,7 @@ namespace PAIN_WF
         private void filterToolStripComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateItems();
+            vehiclesListView.Focus();
         }
 
         #endregion
@@ -206,17 +201,17 @@ namespace PAIN_WF
         #region Updates
         private void UpdateVehicleCount()
         {
-            vehicleCountToolStripStatusLabel.Text = viewListView.Items.Count.ToString();
+            vehicleCountToolStripStatusLabel.Text = vehiclesListView.Items.Count.ToString();
         }
         private void UpdateCommandAvailability()
         {
-            editToolStripMenuItem.Enabled = viewListView.SelectedItems.Count == 1;
-            editToolStripButton.Enabled = viewListView.SelectedItems.Count == 1;
-            editMenuItem.Enabled = viewListView.SelectedItems.Count == 1;
+            editToolStripMenuItem.Enabled = vehiclesListView.SelectedItems.Count == 1;
+            editToolStripButton.Enabled = vehiclesListView.SelectedItems.Count == 1;
+            editMenuItem.Enabled = vehiclesListView.SelectedItems.Count == 1;
 
-            removeMenuItem.Enabled = viewListView.SelectedItems.Count > 0;
-            removeToolStripButton.Enabled = viewListView.SelectedItems.Count > 0;
-            removeToolStripMenuItem.Enabled = viewListView.SelectedItems.Count > 0;
+            removeMenuItem.Enabled = vehiclesListView.SelectedItems.Count > 0;
+            removeToolStripButton.Enabled = vehiclesListView.SelectedItems.Count > 0;
+            removeToolStripMenuItem.Enabled = vehiclesListView.SelectedItems.Count > 0;
         }
 
         private void UpdateItem(ListViewItem item)
@@ -232,7 +227,7 @@ namespace PAIN_WF
 
         private void UpdateItems()
         {
-            viewListView.Items.Clear();
+            vehiclesListView.Items.Clear();
             foreach (Vehicle vehicle in Vehicles.VehiclesList)
             {
                 // Check filter
@@ -241,7 +236,7 @@ namespace PAIN_WF
                     ListViewItem item = new ListViewItem();
                     item.Tag = vehicle;
                     UpdateItem(item);
-                    viewListView.Items.Add(item);
+                    vehiclesListView.Items.Add(item);
                 }
             }
             UpdateVehicleCount();

@@ -34,7 +34,7 @@ namespace PAIN_WF
             this.viewToolStripContainer = new System.Windows.Forms.ToolStripContainer();
             this.viewStatusStrip = new System.Windows.Forms.StatusStrip();
             this.vehicleCountToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.viewListView = new System.Windows.Forms.ListView();
+            this.vehiclesListView = new System.Windows.Forms.ListView();
             this.brandColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.maxSpeedColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.productionDateColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -71,12 +71,12 @@ namespace PAIN_WF
             // 
             // viewToolStripContainer.ContentPanel
             // 
-            this.viewToolStripContainer.ContentPanel.Controls.Add(this.viewListView);
-            this.viewToolStripContainer.ContentPanel.Size = new System.Drawing.Size(480, 290);
+            this.viewToolStripContainer.ContentPanel.Controls.Add(this.vehiclesListView);
+            this.viewToolStripContainer.ContentPanel.Size = new System.Drawing.Size(430, 259);
             this.viewToolStripContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.viewToolStripContainer.Location = new System.Drawing.Point(0, 0);
             this.viewToolStripContainer.Name = "viewToolStripContainer";
-            this.viewToolStripContainer.Size = new System.Drawing.Size(480, 290);
+            this.viewToolStripContainer.Size = new System.Drawing.Size(430, 259);
             this.viewToolStripContainer.TabIndex = 0;
             this.viewToolStripContainer.Text = "toolStripContainer1";
             // 
@@ -102,22 +102,22 @@ namespace PAIN_WF
             this.vehicleCountToolStripStatusLabel.Size = new System.Drawing.Size(13, 17);
             this.vehicleCountToolStripStatusLabel.Text = "0";
             // 
-            // viewListView
+            // vehiclesListView
             // 
-            this.viewListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.vehiclesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.brandColumnHeader,
             this.maxSpeedColumnHeader,
             this.productionDateColumnHeader,
             this.typeColumnHeader});
-            this.viewListView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.viewListView.HideSelection = false;
-            this.viewListView.Location = new System.Drawing.Point(0, 0);
-            this.viewListView.Name = "viewListView";
-            this.viewListView.Size = new System.Drawing.Size(480, 290);
-            this.viewListView.TabIndex = 0;
-            this.viewListView.UseCompatibleStateImageBehavior = false;
-            this.viewListView.View = System.Windows.Forms.View.Details;
-            this.viewListView.SelectedIndexChanged += new System.EventHandler(this.viewListView_SelectedIndexChanged);
+            this.vehiclesListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.vehiclesListView.HideSelection = false;
+            this.vehiclesListView.Location = new System.Drawing.Point(0, 0);
+            this.vehiclesListView.Name = "vehiclesListView";
+            this.vehiclesListView.Size = new System.Drawing.Size(430, 259);
+            this.vehiclesListView.TabIndex = 0;
+            this.vehiclesListView.UseCompatibleStateImageBehavior = false;
+            this.vehiclesListView.View = System.Windows.Forms.View.Details;
+            this.vehiclesListView.SelectedIndexChanged += new System.EventHandler(this.viewListView_SelectedIndexChanged);
             // 
             // brandColumnHeader
             // 
@@ -148,7 +148,7 @@ namespace PAIN_WF
             this.removeMenuItem});
             this.viewMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.viewMenuStrip.Name = "viewMenuStrip";
-            this.viewMenuStrip.Size = new System.Drawing.Size(480, 24);
+            this.viewMenuStrip.Size = new System.Drawing.Size(150, 24);
             this.viewMenuStrip.TabIndex = 1;
             this.viewMenuStrip.Text = "menuStrip1";
             this.viewMenuStrip.Visible = false;
@@ -185,7 +185,7 @@ namespace PAIN_WF
             this.viewToolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.viewToolStrip.Location = new System.Drawing.Point(3, 0);
             this.viewToolStrip.Name = "viewToolStrip";
-            this.viewToolStrip.Size = new System.Drawing.Size(284, 38);
+            this.viewToolStrip.Size = new System.Drawing.Size(253, 38);
             this.viewToolStrip.TabIndex = 0;
             this.viewToolStrip.Visible = false;
             // 
@@ -263,7 +263,7 @@ namespace PAIN_WF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 290);
+            this.ClientSize = new System.Drawing.Size(430, 259);
             this.ContextMenuStrip = this.viewContextMenuStrip;
             this.Controls.Add(this.viewToolStripContainer);
             this.MainMenuStrip = this.viewMenuStrip;
@@ -295,7 +295,7 @@ namespace PAIN_WF
 
         private System.Windows.Forms.ToolStripContainer viewToolStripContainer;
         private System.Windows.Forms.StatusStrip viewStatusStrip;
-        private System.Windows.Forms.ListView viewListView;
+        private System.Windows.Forms.ListView vehiclesListView;
         private System.Windows.Forms.ColumnHeader brandColumnHeader;
         private System.Windows.Forms.ColumnHeader maxSpeedColumnHeader;
         private System.Windows.Forms.ColumnHeader productionDateColumnHeader;

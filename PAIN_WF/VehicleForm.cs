@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PAIN_WF
@@ -14,7 +8,8 @@ namespace PAIN_WF
     {
         #region Data
 
-        private Vehicle Vehicle {
+        private Vehicle Vehicle
+        {
             get;
         }
 
@@ -67,7 +62,7 @@ namespace PAIN_WF
 
         private void VehicleForm_Load(object sender, EventArgs e)
         {
-            if( Vehicle != null)
+            if (Vehicle != null)
             {
                 brandTextBox.Text = Vehicle.Brand;
                 maxSpeedTextBox.Text = Vehicle.MaxSpeed.ToString();
@@ -98,22 +93,38 @@ namespace PAIN_WF
 
         private void maxSpeedTextBox_Validating(object sender, CancelEventArgs e)
         {
-            try
-            {
-                long index = long.Parse(maxSpeedTextBox.Text);
-            }
-            catch (Exception exception)
-            {
-                e.Cancel = true;
-                vehicleErrorProvider.SetError(maxSpeedTextBox, exception.Message);
-            }
+            e.Cancel = !CheckMaxSpeed(maxSpeedTextBox.Text);
         }
 
         private void maxSpeedTextBox_Validated(object sender, EventArgs e)
         {
             vehicleErrorProvider.SetError(maxSpeedTextBox, "");
         }
-    
+
+        private void maxSpeedTextBox_TextChanged(object sender, EventArgs e)
+        {
+            CheckMaxSpeed(maxSpeedTextBox.Text);
+        }
+
+        #endregion
+
+        #region Private methods
+
+        private bool CheckMaxSpeed(string text)
+        {
+            try
+            {
+                long index = long.Parse(maxSpeedTextBox.Text);
+                vehicleErrorProvider.SetError(maxSpeedTextBox, "");
+                return true;
+            }
+            catch (Exception exception)
+            {
+                vehicleErrorProvider.SetError(maxSpeedTextBox, "Max speed must be a number!");
+                return false;
+            }
+        }
+
         #endregion
     }
 }
