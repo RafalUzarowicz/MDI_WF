@@ -72,11 +72,11 @@ namespace PAIN_WF
             // viewToolStripContainer.ContentPanel
             // 
             this.viewToolStripContainer.ContentPanel.Controls.Add(this.vehiclesListView);
-            this.viewToolStripContainer.ContentPanel.Size = new System.Drawing.Size(430, 259);
+            this.viewToolStripContainer.ContentPanel.Size = new System.Drawing.Size(474, 244);
             this.viewToolStripContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.viewToolStripContainer.Location = new System.Drawing.Point(0, 0);
             this.viewToolStripContainer.Name = "viewToolStripContainer";
-            this.viewToolStripContainer.Size = new System.Drawing.Size(430, 259);
+            this.viewToolStripContainer.Size = new System.Drawing.Size(474, 282);
             this.viewToolStripContainer.TabIndex = 0;
             this.viewToolStripContainer.Text = "toolStripContainer1";
             // 
@@ -113,7 +113,7 @@ namespace PAIN_WF
             this.vehiclesListView.HideSelection = false;
             this.vehiclesListView.Location = new System.Drawing.Point(0, 0);
             this.vehiclesListView.Name = "vehiclesListView";
-            this.vehiclesListView.Size = new System.Drawing.Size(430, 259);
+            this.vehiclesListView.Size = new System.Drawing.Size(474, 244);
             this.vehiclesListView.TabIndex = 0;
             this.vehiclesListView.UseCompatibleStateImageBehavior = false;
             this.vehiclesListView.View = System.Windows.Forms.View.Details;
@@ -185,7 +185,7 @@ namespace PAIN_WF
             this.viewToolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.viewToolStrip.Location = new System.Drawing.Point(3, 0);
             this.viewToolStrip.Name = "viewToolStrip";
-            this.viewToolStrip.Size = new System.Drawing.Size(253, 38);
+            this.viewToolStrip.Size = new System.Drawing.Size(284, 38);
             this.viewToolStrip.TabIndex = 0;
             this.viewToolStrip.Visible = false;
             // 
@@ -263,7 +263,7 @@ namespace PAIN_WF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 259);
+            this.ClientSize = new System.Drawing.Size(474, 282);
             this.ContextMenuStrip = this.viewContextMenuStrip;
             this.Controls.Add(this.viewToolStripContainer);
             this.MainMenuStrip = this.viewMenuStrip;

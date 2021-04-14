@@ -21,6 +21,7 @@ namespace PAIN_WF
             set
             {
                 type = value;
+                Invalidate();
             }
         }
 

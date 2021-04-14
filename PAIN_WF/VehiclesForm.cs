@@ -186,6 +186,9 @@ namespace PAIN_WF
 
         private void VehiclesForm_Activated(object sender, EventArgs e)
         {
+            ToolStripManager.RevertMerge(((MainForm)MdiParent).mainStatusStrip);
+            ToolStripManager.RevertMerge(((MainForm)MdiParent).mainToolStrip);
+
             ToolStripManager.Merge(viewStatusStrip, ((MainForm)MdiParent).mainStatusStrip);
             ToolStripManager.Merge(viewToolStrip, ((MainForm)MdiParent).mainToolStrip);
         }
